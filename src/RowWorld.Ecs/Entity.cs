@@ -52,6 +52,16 @@ namespace RowWorld.Ecs
 			return cmp;
 		}
 
+	    public bool HasComponent(Type type)
+	    {
+	        return _components.ContainsKey(type);
+	    }
+
+	    public bool HasComponent<TComponent>() where TComponent : Component
+	    {
+	        return HasComponent(typeof(TComponent));
+	    }
+
 		public TComponent SetComponent<TComponent>(TComponent cmp) where TComponent : Component
 		{
 			return (TComponent) SetComponent(typeof (TComponent), cmp);
