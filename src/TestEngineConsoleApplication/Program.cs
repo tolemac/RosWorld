@@ -27,10 +27,35 @@ namespace TestEngineConsoleApplication
 		public double Amount { get; set; }
 	}
 
+    public class HousesComponent : Component
+    {
+        public static int HousePrice = 100;
+        public static int PeopleIncrementPerHouse = 10;
+        public HousesComponent(long amount)
+        {
+            Amount = amount;
+        }
+
+        public long Amount { get; set; }
+    }
+
 	public class Player : Entity
 	{
-		
-	}
+	    public bool BuildHouse()
+	    {
+	        var gold = GetComponent<GoldComponent>();
+	        if (gold.Amount > HousesComponent.HousePrice)
+	        {
+	            gold.Amount -= HousesComponent.HousePrice;
+	            if (!HasComponent<HousesComponent>())
+	                AddComponent(new HousesComponent(0));
+	            GetComponent<HousesComponent>().Amount++;
+	            GetComponent<PeopleComponent>().Amount += HousesComponent.PeopleIncrementPerHouse;
+	        }
+
+	        return true;
+	    }
+    }
 
 	public class GoldSystem : EcsSystem
 	{
@@ -59,7 +84,7 @@ namespace TestEngineConsoleApplication
 		{
 			var engine = new Engine();
 
-			engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(1));
+			var player1 = (Player) engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(1));
 			engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(2));
 			engine.AddSystem(new GoldSystem());
 
@@ -68,12 +93,19 @@ namespace TestEngineConsoleApplication
 			ConsoleKeyInfo key;
 			while ((key = Console.ReadKey()).Key != ConsoleKey.Q)
 			{
+			    if (key.Key == ConsoleKey.H)
+			        player1.BuildHouse();
+
 				engine.ProcessSystems();
 				foreach (var entity in engine.GetEntitiesByComponents(typeof(GoldComponent)))
 				{
-					Console.WriteLine($"Entity {entity.Id} => Gold: {entity.GetComponent<GoldComponent>().Amount} - in {(DateTime.Now - engine.StartTime).TotalSeconds} seconds");
-				}
-			}
+					Console.WriteLine($"Entity {entity.Id} =>");
+                    Console.WriteLine($"    Gold: {entity.GetComponent<GoldComponent>().Amount} - in {(DateTime.Now - engine.StartTime).TotalSeconds} seconds");
+                    Console.WriteLine($"    People: {entity.GetComponent<PeopleComponent>().Amount}");
+                    if (entity.HasComponent<HousesComponent>())
+                        Console.WriteLine($"    Houses: {entity.GetComponent<HousesComponent>().Amount}");
+                }
+            }
 		}
 	}
 }
