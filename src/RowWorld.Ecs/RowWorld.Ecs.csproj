@@ -39,7 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Component.cs" />
+    <Compile Include="Components\Component.cs" />
+    <Compile Include="Components\ScalarComponents.cs" />
+    <Compile Include="Components\ValueComponent.cs" />
     <Compile Include="Engine.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

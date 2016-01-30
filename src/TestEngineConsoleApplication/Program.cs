@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RowWorld.Ecs;
+using RowWorld.Ecs.Components;
 
 namespace TestEngineConsoleApplication
 {

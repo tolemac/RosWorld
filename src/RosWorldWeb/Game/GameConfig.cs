@@ -1,31 +1,25 @@
 ﻿using RosWorldWeb.Game;
 using RowWorld.Ecs;
+using RowWorld.Ecs.Components;
 using WebActivatorEx;
 
 [assembly: PreApplicationStartMethod(typeof(GameConfig), "Config")]
 
-
 namespace RosWorldWeb.Game
 {
 
-	public class GoldComponent : Component
+	public class GoldComponent : DoubleComponent
 	{
-		public GoldComponent(long amount)
+		public GoldComponent(double amount) : base(amount)
 		{
-			Amount = amount;
 		}
-
-		public double Amount { get; set; }
 	}
 
-	public class PeopleComponent : Component
+	public class PeopleComponent : LongComponent
 	{
-		public PeopleComponent(long amount)
+		public PeopleComponent(long amount) : base(amount)
 		{
-			Amount = amount;
 		}
-
-		public double Amount { get; set; }
 	}
 
 	public class HousesComponent : Component
@@ -45,13 +39,13 @@ namespace RosWorldWeb.Game
 		public bool BuildHouse()
 		{
 			var gold = GetComponent<GoldComponent>();
-			if (gold.Amount > HousesComponent.HousePrice)
+			if (gold.Value > HousesComponent.HousePrice)
 			{
-				gold.Amount -= HousesComponent.HousePrice;
+				gold.Value -= HousesComponent.HousePrice;
 				if (!HasComponent<HousesComponent>())
 					AddComponent(new HousesComponent(0));
 				GetComponent<HousesComponent>().Amount++;
-				GetComponent<PeopleComponent>().Amount += HousesComponent.PeopleIncrementPerHouse;
+				GetComponent<PeopleComponent>().Value += HousesComponent.PeopleIncrementPerHouse;
 				return true;
 			}
 
@@ -73,8 +67,8 @@ namespace RosWorldWeb.Game
 		{
 			// 2 per 1000 milliseconds
 			var amountPerSecond = 2;
-			var people = entity.GetComponent<PeopleComponent>().Amount;
-			entity.GetComponent<GoldComponent>().Amount += (engine.DeltaMs * amountPerSecond / 1000.0) * people;
+			var people = entity.GetComponent<PeopleComponent>().Value;
+			entity.GetComponent<GoldComponent>().Value += (engine.DeltaMs * amountPerSecond / 1000.0) * people;
 		}
 
 		#endregion

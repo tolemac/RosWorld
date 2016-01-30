@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RowWorld.Ecs.Components;
 
 namespace RowWorld.Ecs
 {
