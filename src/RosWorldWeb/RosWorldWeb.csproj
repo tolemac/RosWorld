@@ -179,6 +179,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
@@ -186,6 +187,7 @@
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="Game\GameConfig.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -246,6 +248,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="typescript\app\boot.ts" />
+    <TypeScriptCompile Include="typescript\app\game-controller.ts" />
     <TypeScriptCompile Include="typescript\typings\angular-material\angular-material.d.ts" />
     <TypeScriptCompile Include="typescript\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="typescript\typings\angularjs\angular.d.ts" />
@@ -255,6 +258,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RowWorld.Ecs\RowWorld.Ecs.csproj">
+      <Project>{1e0f7752-81a8-4bca-bf35-5331cada610c}</Project>
+      <Name>RowWorld.Ecs</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
@@ -18,10 +18,7 @@
             baseURL: "/typescript",
             defaultJSExtensions: true
         });
-        System.import("App/Boot");
-
-        angular.module("app", ["ngMaterial"]);
-
+        System.import("app/boot");
     </script>
 </head>
 <body layout="row" flex>
