@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    <link href="/node_modules/angular-material/angular-material.css" rel="stylesheet" />
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/angular/angular.js"></script>
+    <script src="/node_modules/angular-animate/angular-animate.js"></script>
+    <script src="/node_modules/angular-aria/angular-aria.js"></script>
+    <script src="/node_modules/angular-messages/angular-messages.js"></script>
+    <script src="/node_modules/angular-material/angular-material.js"></script>
+    <script src="/node_modules/systemjs/dist/system.src.js"></script>
+    <script type="text/javascript">
+        System.config({
+            baseURL: "/typescript",
+            defaultJSExtensions: true
+        });
+        System.import("App/Boot");
+
+        angular.module("app", ["ngMaterial"]);
+
+    </script>
+</head>
+<body layout="row" flex>
+    <section id="menu-lateral"></section>
+    <section id="principal" layout="column" flex>
+        <header>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>@Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "" })</span>
+                    </h2>
+                    <span flex></span>
+                    @Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { style = "margin-left: 1rem;" })
+                    @Html.ActionLink("Acerca de", "About", "Home", new { area = "" }, new { style = "margin-left: 1rem;" })
+                    @Html.ActionLink("Contacto", "Contact", "Home", new { area = "" }, new { style = "margin-left: 1rem;" })
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </md-toolbar>
+        </header>
+        <componente1></componente1>
+        <md-content flex md-scroll-y id="contenido">
+            @RenderBody()
+        </md-content>
+        <footer id="pie">
+            &copy; @DateTime.Now.Year - Mi aplicación ASP.NET
+        </footer>
+    </section>
+
+    @RenderSection("scripts", required: false)
+</body></html>

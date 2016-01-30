@@ -1,0 +1,19 @@
+{
+  "name": "RosWorldWeb",
+  "version": "0.0.0",
+  "description": "RosWorldWeb",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Javier Ros",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0-rc.1",
+    "angular-animate": "^1.5.0-rc.1",
+    "angular-aria": "^1.5.0-rc.1",
+    "angular-material": "^1.0.2",
+    "angular-messages": "^1.5.0-rc.1",
+    "jquery": "^2.2.0",
+    "systemjs": "^0.19.17"
+  }
+}

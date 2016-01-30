@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RowWorld.Ecs", "RowWorld.Ec
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestEngineConsoleApplication", "TestEngineConsoleApplication\TestEngineConsoleApplication.csproj", "{E1CA697B-ACC6-42E1-94D7-5A6FD07D159A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RosWorldWeb", "RosWorldWeb\RosWorldWeb.csproj", "{028DBF2B-2507-4BE7-B99A-4ECE967B06C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RosWorld", "RosWorld", "{183A9D8C-5DD7-466F-BAB7-EECA60E25CDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Console", "Console", "{385C105C-4D75-4C9B-A8FD-2AC684B63882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,8 +33,17 @@ Global
 		{E1CA697B-ACC6-42E1-94D7-5A6FD07D159A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1CA697B-ACC6-42E1-94D7-5A6FD07D159A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1CA697B-ACC6-42E1-94D7-5A6FD07D159A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{028DBF2B-2507-4BE7-B99A-4ECE967B06C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{028DBF2B-2507-4BE7-B99A-4ECE967B06C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{028DBF2B-2507-4BE7-B99A-4ECE967B06C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{028DBF2B-2507-4BE7-B99A-4ECE967B06C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BB807401-F77D-4247-8FC8-86077748D040} = {183A9D8C-5DD7-466F-BAB7-EECA60E25CDB}
+		{1E0F7752-81A8-4BCA-BF35-5331CADA610C} = {183A9D8C-5DD7-466F-BAB7-EECA60E25CDB}
+		{E1CA697B-ACC6-42E1-94D7-5A6FD07D159A} = {385C105C-4D75-4C9B-A8FD-2AC684B63882}
 	EndGlobalSection
 EndGlobal
