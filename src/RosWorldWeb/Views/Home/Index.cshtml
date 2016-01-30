@@ -3,13 +3,55 @@
 }
 
 <div ng-controller="gameController as ctrl">
-    <code style="white-space: pre-wrap;">
+    <div>
+        <div>
+            <md-toolbar class="md-warn">
+                <div class="md-toolbar-tools">
+                    <h2 class="md-flex">
+                        Datos juego
+                    </h2>
+                </div>
+            </md-toolbar>
+            <md-content>
+                <code style="white-space: pre-wrap;">
 {{ctrl.engine}}
-    </code>
-    <code style="white-space: pre-wrap;">
-{{ctrl.entities}}
-    </code>
+                </code>
+            </md-content>
+
+        </div>
+        <div layout="row">
+            <div  flex>
+                <md-toolbar class="md-warn">
+                    <div class="md-toolbar-tools">
+                        <h2 class="md-flex">
+                            Jugador 1
+                        </h2>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <code style="white-space: pre-wrap;">
+{{ctrl.player1}}
+                    </code>
+                </md-content>
+            </div>
+            <div  flex>
+                <md-toolbar class="md-warn">
+                    <div class="md-toolbar-tools">
+                        <h2 class="md-flex">
+                            Jugador 2
+                        </h2>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <code style="white-space: pre-wrap;">
+{{ctrl.player2}}
+                    </code>
+                </md-content>
+            </div>
+        </div>
+    </div>
     <md-button class="md-raised md-primary" ng-click="ctrl.reset()">Resetear</md-button>
     <md-button class="md-raised md-primary" ng-click="ctrl.player1BuildHouse()">Jugador 1 - Construir casa</md-button>
+    <md-button class="md-raised md-primary" ng-click="ctrl.player2BuildHouse()">Jugador 2 - Construir casa</md-button>
     <div>{{ctrl.gameMessage}}</div>
 </div>

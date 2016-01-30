@@ -85,13 +85,14 @@ namespace RosWorldWeb.Game
 	{
 		public static Engine Engine;
 		public static Player Player1;
+		public static Player Player2;
 
 		public static void Config()
 		{
 			var engine = Engine = new Engine();
 
-			Player1 = (Player) engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(1));
-			engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(2));
+			Player1 = (Player)engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(1));
+			Player2 = (Player)engine.CreateEntity<Player>().AddComponent(new GoldComponent(0)).AddComponent(new PeopleComponent(2));
 			engine.AddSystem(new GoldSystem());
 
 			engine.Start();

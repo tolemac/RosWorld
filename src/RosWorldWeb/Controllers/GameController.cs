@@ -44,6 +44,12 @@ namespace RosWorldWeb.Controllers
 		}
 
 		[HttpPost]
+		public bool Player2BuildHouse()
+		{
+			return GameConfig.Player2.BuildHouse();
+		}
+
+		[HttpPost]
 		public void Reset()
 		{
 			GameConfig.Config();
